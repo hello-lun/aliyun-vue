@@ -1,6 +1,8 @@
 import Axios from '@/api/axios/index.js';
 
-let getMemberList = () => 
+let obj = {};
+
+obj.getMemberList = () => 
   Axios({
     url: '/member/list',
     method: 'get',
@@ -8,4 +10,4 @@ let getMemberList = () =>
     this.goods = res.list;
   });
 
-module.exports = {getMemberList};
+module.exports = obj;

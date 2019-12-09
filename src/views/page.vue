@@ -42,7 +42,7 @@
 
 <script>
 import { Tabbar, TabbarItem, NavBar, Button, Swipe, SwipeItem, Card, Dialog } from 'vant';
-import API from '@/api/member/index.js';
+import {API as obj} from '@/api/member/index.js';
 
 export default {
   name: "homesgehe",
