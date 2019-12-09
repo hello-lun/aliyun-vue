@@ -29,9 +29,6 @@ if (!_packageJson.mergeDate) {
       });
     });
   }
-
-  console.log(currenceDate, '-=-=');
-
 }
 
 
