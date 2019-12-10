@@ -7,7 +7,7 @@ module.exports = {
     : '/',
   assetsDir: './assets',
   devServer: {
-    proxy: 'http://47.105.191.28'
+    proxy: 'http://172.27.50.26:3389'
   },
   lintOnSave: false,
   css: {

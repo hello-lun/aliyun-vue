@@ -12,7 +12,9 @@
         label="密码"
         left-icon="eye-o"/>
 
-      <van-button type="primary" size="large" class="button" @click="login">登录</van-button>
+      <van-button type="primary" size="small" class="button" @click="login">登录</van-button>
+      <van-button type="warning" size="small" class="button" @click="registered">注册</van-button>
+
     </div>
   </div>
 </template>
@@ -36,6 +38,23 @@ export default {
   },
   computed: {},
   methods: {
+    registered () {
+      if (!this.name) return Notify({ type: 'danger', message: '请填写用户名' });
+      if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
+      Axios({
+        url: '/member/registered',
+        method: 'get',
+        params: {
+          name: this.name,
+          password: this.password,
+        }
+      }).then(res => {
+        Toast.success('注册成功');
+        this.$router.push('/page');
+      }).catch(err => {
+        Toast.fail('注册失败，' + err.error);
+      });
+    },
     login () {
       if (!this.name) return Notify({ type: 'danger', message: '请填写用户名' });
       if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
@@ -71,7 +90,7 @@ export default {
 }
 
 .button {
-  margin-top: 20px;
+  margin: 20px 20px 0 0;
 }
 
 .title {
