@@ -51,7 +51,7 @@ export default {
         Toast.success('登录成功');
         this.$router.push('/page');
       }).catch(err => {
-        Toast.fail('登录失败');
+        Toast.fail('登录失败，' + err.error);
       });
     },
   },
