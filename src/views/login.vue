@@ -1,6 +1,6 @@
 <template>
   <div class='wrap'>
-    <p class="title">伦哥网站登录页面777</p>
+    <p class="title">伦哥网站登录页面,你们号码666</p>
     <div style="margin-top: 160px;">
       <van-field
         v-model="name"
@@ -76,6 +76,7 @@ export default {
 .title {
   color: #7584a0;
   padding: 0 0 15px;
+  font-size: 16px;
   border-bottom: 1px solid #f3f2f2;
 }
 
