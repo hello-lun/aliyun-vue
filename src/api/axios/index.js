@@ -58,7 +58,7 @@ function initAxios(oringinOption) {
       })
       .catch(err => {
         // 主动取消请求时不需要进入错误提示环节
-        reject(err.response || err.message);
+        reject(err.response.data || err.message);
       });
   });
 
