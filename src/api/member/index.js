@@ -6,8 +6,6 @@ obj.getMemberList = () =>
   Axios({
     url: '/member/list',
     method: 'get',
-  }).then(res => {
-    this.goods = res.list;
   });
 
 
