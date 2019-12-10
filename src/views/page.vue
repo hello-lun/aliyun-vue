@@ -42,7 +42,7 @@
 
 <script>
 import { Tabbar, TabbarItem, NavBar, Button, Swipe, SwipeItem, Card, Dialog } from 'vant';
-import {API as obj} from '@/api/member/index.js';
+import API from '@/api/member/index.js';
 
 export default {
   name: "homesgehe",
@@ -81,16 +81,17 @@ export default {
       // this.$router.go(-1);
     },
     onClickRight() {
+      let _this = this;
       Dialog.confirm({
         title: '标题',
         message: '加载其他'
       }).then(() => {
         API.getMemberList().then(res => {
-          this.goods = res.list;
+          _this.goods = res.list;
         });
       }).catch(() => {
         API.getMemberList().then(res => {
-          this.goods = res.list;
+          _this.goods = res.list;
         });
       });
     },

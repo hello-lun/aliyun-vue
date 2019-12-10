@@ -10,4 +10,5 @@ obj.getMemberList = () =>
     this.goods = res.list;
   });
 
-module.exports = obj;
+
+  export default obj;
