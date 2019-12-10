@@ -8,5 +8,10 @@ obj.getMemberList = () =>
     method: 'get',
   });
 
+obj.getAllMember = () => 
+  Axios({
+    url: '/member/get-member',
+    method: 'get',
+  });
 
   export default obj;

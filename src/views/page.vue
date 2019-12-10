@@ -34,7 +34,7 @@
       active-color="#07c160"
       inactive-color="#000"
     >
-      <van-tabbar-item icon="star-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="star-o">当前已注册（{{memberList.length}}）人</van-tabbar-item>
       <van-tabbar-item icon="like-o" @click="more">更多美图</van-tabbar-item>
     </van-tabbar>
   </div>
@@ -60,6 +60,7 @@ export default {
       active: null,
       imgs: [],
       goods: [],
+      memberList: [],
     }
   },
   methods: {
@@ -90,8 +91,8 @@ export default {
           _this.goods = res.list;
         });
       }).catch(() => {
-        API.getMemberList().then(res => {
-          _this.goods = res.list;
+        API.getAllMember().then(res => {
+          _this.memberList = res.list;
         });
       });
     },
