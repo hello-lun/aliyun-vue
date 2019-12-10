@@ -10,6 +10,7 @@ module.exports = {
     proxy: 'http://172.27.50.26:3389'
   },
   lintOnSave: false,
+  productionSourceMap: false,
   css: {
     loaderOptions: {
       postcss: {

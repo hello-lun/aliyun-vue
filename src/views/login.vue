@@ -1,6 +1,7 @@
 <template>
   <div class='wrap'>
-    <p class="title">伦哥网站登录页面666</p>
+    <!-- <p class="title">一起走过的日子</p> -->
+    <title-animation />
     <div style="margin-top: 160px;">
       <van-field
         v-model="name"
@@ -22,6 +23,7 @@
 <script>
 import { Field, Button, Toast, Notify } from 'vant';
 import Axios from '@/api/axios/index.js';
+import title from '@/views/animation/title.vue';
 
 export default {
   name: '',
@@ -34,7 +36,7 @@ export default {
   components: {
     [Field.name]: Field,
     [Button.name]: Button,
-
+    titleAnimation: title,
   },
   computed: {},
   methods: {
@@ -80,7 +82,11 @@ export default {
 }
 </script>
 
-<style lang='css' scoped>
+<style lang='scss' scoped>
+
+p {
+  margin: 0;
+}
 
 .wrap {
   box-sizing: border-box;
@@ -95,7 +101,7 @@ export default {
 
 .title {
   color: #7584a0;
-  padding: 0 0 15px;
+  padding: 15px 0;
   font-size: 16px;
   border-bottom: 1px solid #f3f2f2;
 }
