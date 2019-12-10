@@ -90,11 +90,7 @@ export default {
         API.getMemberList().then(res => {
           _this.goods = res.list;
         });
-      }).catch(() => {
-        API.getAllMember().then(res => {
-          _this.memberList = res.list;
-        });
-      });
+      }).catch(() => {});
     },
 
     routerPush () {
@@ -102,6 +98,9 @@ export default {
     }
   },
   created () {
+    API.getAllMember().then(res => {
+      _this.memberList = res.list;
+    });
   },
 };
 </script>
