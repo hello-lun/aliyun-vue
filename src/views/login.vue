@@ -1,6 +1,6 @@
 <template>
   <div class='wrap'>
-    <p class="title">伦哥网站登录页面,git push</p>
+    <p class="title">伦哥网站登录页面,git push页面</p>
     <div style="margin-top: 160px;">
       <van-field
         v-model="name"
