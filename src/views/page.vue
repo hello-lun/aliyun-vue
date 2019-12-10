@@ -99,7 +99,7 @@ export default {
   },
   created () {
     API.getAllMember().then(res => {
-      _this.memberList = res.list;
+      this.memberList = res.list;
     });
   },
 };
