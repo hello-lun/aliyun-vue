@@ -9,5 +9,11 @@ obj.getArticalList = (data) =>
     data,
   });
 
+obj.getArticalById = (data) => 
+  Axios({
+    url: '/api/article/getArticalById',
+    method: 'get',
+    params: data,
+  });
 
 export default obj;

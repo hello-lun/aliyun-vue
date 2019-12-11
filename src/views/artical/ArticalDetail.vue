@@ -1,14 +1,16 @@
 <template>
-  <div class=''>
+  <div class='wrap'>
     <h2>图片上传</h2>
     <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
     <img :src="src" width="200px" />
+    
+    <div class="wangEditor-txt" v-html="messageData.content"></div>
   </div>
 </template>
 
 <script>
 import { Uploader } from 'vant';
-import API from '@/api/common.js';
+import API from '@/api/artical/index.js';
 
 export default {
   name: '',
@@ -18,6 +20,10 @@ export default {
   data() {
     return {
       src: '',
+      messageData: {
+        title: '',
+        content: ''
+      },
     };
   },
   computed: {},
@@ -33,11 +39,33 @@ export default {
       });
     }
   },
-  created() {},
+  created() {
+    API.getArticalById({id: 1}).then(res => {
+      this.messageData.content = res.data.content;
+      this.messageData.title = res.data.title;
+    });;
+  },
   mounted() {},
 }
 </script>
 
 <style lang='scss' scoped>
 
+// .wangEditor-container {
+//   width: 100%;
+//   height: 100%;
+
+//   img {
+//     max-width: 100% !important;
+//   }
+// }
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  
+  img {
+    max-width: 100% !important;
+  }
+}
 </style>
