@@ -18,7 +18,8 @@
         v-for="item in articalList"
         :key="item.title"
         :desc="item.desc"
-        :thumb="item.thumb">
+        :thumb="item.thumb"
+        @click="pageDetail(item.id)">
         <div slot="title" class="title">{{ item.title }}</div>
         <span slot="price">{{ item.createTime }}</span>
         <span slot="num">阅读({{ item.num }})</span>
@@ -53,6 +54,12 @@ export default {
   },
   computed: {},
   methods: {
+    pageDetail (id) {
+      this.$router.push({
+        path: '/artical-detail',
+        id,
+      });
+    },
     onLoad () {},
     onClickLeft () {
       this.$router.back();

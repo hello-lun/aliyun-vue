@@ -26,7 +26,13 @@ const routes = [
     path: "/artical",
     name: "artical",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/artical.vue")
+      import(/* webpackChunkName: "artical" */ "../views/artical/index.vue")
+  },
+  {
+    path: "/artical-detail",
+    name: "artical-detail",
+    component: () =>
+      import(/* webpackChunkName: "artical" */ "../views/artical/ArticalDetail.vue")
   },
 ];
 
