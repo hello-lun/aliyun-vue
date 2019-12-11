@@ -105,7 +105,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .img-wrap {
   width: 100%;
   height: 300px;

@@ -1,7 +1,7 @@
 <template>
   <div class='wrap'>
-    <!-- <p class="title">一起走过的日子</p> -->
-    <title-animation />
+    <p class="title animated rubberBand">一起走过的日子</p>
+    <!-- <title-animation /> -->
     <div style="margin-top: 160px;">
       <van-field
         v-model="name"

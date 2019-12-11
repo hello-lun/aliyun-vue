@@ -1,61 +1,102 @@
 <template>
-  <div class=''>
+  <div class='wrap'>
     <van-nav-bar
-      title="首页"
-      left-text="文章"
-      left-arrow
+      right-text="登录/注册"
       @click-left="onClickLeft"
       @click-right="onClickRight">
-       <van-icon name="friends" slot="right" size="1.2em" />
+      <title-animation slot="title" class="mini"/>
+      <van-icon name="apps-o" slot="left" size="1.3rem" />
     </van-nav-bar>
-    <ul>
-      <li v-for="item in list" :key="item" class="item" @click="onClickRight">{{ item }}</li>
-    </ul>
+
+    <van-popup v-model="popupShow" position="left">
+      <div class="left-box">
+        <p class="left-item">
+          <van-icon name="user-circle-o" size="1.5rem" />
+        </p>
+        <p class="left-item">
+          <span>个人简介</span> 
+        </p>
+        <van-cell title="博客" is-link icon="records" @click="handler('1')"/>
+        <van-cell title="杂文" is-link icon="newspaper-o" @click="handler('2')"/>
+        <van-cell title="心得" is-link icon="like-o" @click="handler('3')"/>
+        <van-cell title="旅游" is-link icon="logistics" @click="handler('4')"/>
+      </div>
+    </van-popup>
   </div>
 </template>
 
 <script>
-import { NavBar, Icon } from 'vant';
-import Axios from '@/api/axios/index.js';
+import { NavBar, Popup, Icon, Cell } from 'vant';
+import title from '@/views/animation/title.vue';
 
 export default {
   name: '',
   components: {
     [NavBar.name]: NavBar,
+    [Popup.name]: Popup,
     [Icon.name]: Icon,
+    [Cell.name]: Cell,
+    titleAnimation: title,
+
   },
   data() {
     return {
-      list: ['上课的法国队', '数据的分布桂萼不过覅']
+      popupShow: false,
     };
   },
   computed: {},
   methods: {
-    onClickLeft () {
-      this.$router.push('/page');
-    },
     onClickRight () {
-      this.$router.push('/page');
+      this.$router.push('/login');
+    },
+    handler () {
+      this.$router.push('/artical');
+    },
+    onClickLeft () {
+      this.popupShow = true;
     },
   },
-
-  created() {
-    Axios({
-      url: '/member/pageList',
-      method: 'get',
-    }).then(res => {
-      this.list = res.list;
-    });
-  },
+  created() {},
   mounted() {},
 }
 </script>
 
-<style lang='css' scoped>
+<style lang='scss' scoped>
+p {
+  margin: 0;
+}
 
-.item {
-  padding: 10px 10px 10px;
-  border-bottom: 1px solid #ddd;
+.wrap {
+  height: 100%;
 
+  .van-popup {
+    height: 100%;
+  }
+}
+
+.left{
+  &-box {
+    width: 200px;
+    height: 100%;
+    padding: 20px 0;
+
+    .van-cell__title {
+      text-align: left;
+    }
+  }
+
+  &-item {
+    margin: 5px 0;
+  }
+
+}
+
+.mini {
+  padding: 0;
+  border: 0;
+
+  /deep/ .cp-preloader__letter {
+    font-size: 16px;
+  }
 }
 </style>

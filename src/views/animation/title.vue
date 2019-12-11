@@ -45,6 +45,7 @@ export default {
   animation-delay: 0.3s;
 }
 
+
 .cp-preloader__letter:nth-child(3):before {
   animation-delay: 0.45s;
 }
