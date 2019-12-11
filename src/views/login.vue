@@ -44,7 +44,7 @@ export default {
       if (!this.name) return Notify({ type: 'danger', message: '请填写用户名' });
       if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
       Axios({
-        url: '/member/registered',
+        url: '/api/member/registered',
         method: 'get',
         params: {
           name: this.name,
@@ -62,7 +62,7 @@ export default {
       if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
 
       Axios({
-        url: '/member/login',
+        url: '/api/member/login',
         method: 'get',
         params: {
           name: this.name,

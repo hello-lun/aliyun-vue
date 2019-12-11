@@ -4,13 +4,13 @@ let obj = {};
 
 obj.getMemberList = () => 
   Axios({
-    url: '/member/list',
+    url: '/api/member/list',
     method: 'get',
   });
 
 obj.getAllMember = () => 
   Axios({
-    url: '/member/get-member',
+    url: '/api/member/get-member',
     method: 'get',
   });
 

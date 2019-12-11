@@ -4,7 +4,7 @@ let obj = {};
 
 obj.getArticalList = (data) => 
   Axios({
-    url: '/article/list',
+    url: '/api/article/list',
     method: 'get',
     data,
   });

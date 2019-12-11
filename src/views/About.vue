@@ -20,7 +20,7 @@ export default {
   methods: {},
   created() {
     Axios({
-      url: '/price/list',
+      url: '/api/price/list',
       method: 'get',
     }).then(res => {
       this.dataList = res.list;
