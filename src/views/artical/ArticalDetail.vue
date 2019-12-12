@@ -11,6 +11,8 @@
 <script>
 import { Uploader } from 'vant';
 import API from '@/api/artical/index.js';
+import API_UPLOAD from '@/api/common.js';
+
 
 export default {
   name: '',
@@ -32,7 +34,7 @@ export default {
       let params = new FormData(); //创建form对象
       params.append("files", file.file); //通过append向form对象添加数据//第一个参数字符串可以填任意命名，第二个根据对象属性来找到file
   
-      API.upload(params).then(res => {
+      API_UPLOAD.upload(params).then(res => {
         this.src = res.src;
       }).catch(err => {
         console.log(err)
