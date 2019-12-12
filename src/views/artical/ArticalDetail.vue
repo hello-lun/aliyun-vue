@@ -1,27 +1,29 @@
 <template>
   <div class='wrap'>
-    <h2>图片上传</h2>
+    <!-- <h2>图片上传</h2>
     <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
     <img :src="src" width="200px" />
-    
+     -->
+    <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
     <div class="wangEditor-txt" v-html="messageData.content"></div>
   </div>
 </template>
 
 <script>
-import { Uploader } from 'vant';
+import { Uploader,Skeleton } from 'vant';
 import API from '@/api/artical/index.js';
 import API_UPLOAD from '@/api/common.js';
-
 
 export default {
   name: '',
   components: {
-    [Uploader.name]: Uploader
+    [Uploader.name]: Uploader,
+    [Skeleton.name]: Skeleton,
   },
   data() {
     return {
       src: '',
+      loading: true,
       messageData: {
         title: '',
         content: ''
@@ -46,7 +48,11 @@ export default {
     API.getArticalById({id}).then(res => {
       this.messageData.content = res.data.content;
       this.messageData.title = res.data.title;
-    });;
+      this.loading = false;
+    }).catch(err => {
+      this.loading = false;
+      console.log(err)
+    });
   },
   mounted() {},
 }
