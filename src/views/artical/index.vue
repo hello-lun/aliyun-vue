@@ -12,6 +12,7 @@
       :finished="finished"
       finished-text="没有更多了"
       class="list"
+      v-show="!skeletonLoading"
       @load="onLoad"
     >
       <van-card
