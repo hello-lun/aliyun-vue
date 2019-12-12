@@ -6,3 +6,7 @@ html, body {
 img {
   max-width: 100% !important;
 }
+
+p {
+  text-align: left;
+}

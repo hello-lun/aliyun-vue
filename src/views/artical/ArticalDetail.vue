@@ -40,7 +40,8 @@ export default {
     }
   },
   created() {
-    API.getArticalById({id: 1}).then(res => {
+    let { id } = this.$route.query;
+    API.getArticalById({id}).then(res => {
       this.messageData.content = res.data.content;
       this.messageData.title = res.data.title;
     });;
@@ -63,6 +64,12 @@ export default {
 .wrap {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  p {
+    text-align: left;
+  }
   
   img {
     max-width: 100% !important;

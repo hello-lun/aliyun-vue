@@ -18,11 +18,11 @@
         v-for="item in articalList"
         :key="item.title"
         :desc="item.desc"
-        :thumb="item.thumb"
+        :thumb="item.cover"
         @click="pageDetail(item.id)">
         <div slot="title" class="title">{{ item.title }}</div>
         <span slot="price">{{ item.createTime }}</span>
-        <span slot="num">阅读({{ item.num }})</span>
+        <span slot="num">阅读({{ item.read }})</span>
       </van-card>
     </van-list>
   </div>
@@ -57,7 +57,7 @@ export default {
     pageDetail (id) {
       this.$router.push({
         path: '/artical-detail',
-        id,
+        query: {id}
       });
     },
     onLoad () {},
