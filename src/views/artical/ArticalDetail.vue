@@ -4,8 +4,9 @@
     <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
     <img :src="src" width="200px" />
      -->
-    <h3 class="title">{{ messageData.title }}</h3>
     <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
+
+    <h3 class="title">{{ messageData.title }}</h3>
     <div class="wangEditor-txt" v-html="messageData.content"></div>
   </div>
 </template>
@@ -62,6 +63,10 @@ export default {
 <style lang='scss' scoped>
 
 .title {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top: 0;
   border-bottom: 1px solid #f3f3f3;
   margin: 0;
   padding: 15px 0;
@@ -72,13 +77,9 @@ export default {
   height: 100%;
   box-sizing: border-box;
   padding: 0 20px;
+}
 
-  p {
-    text-align: left;
-  }
-  
-  img {
-    max-width: 100% !important;
-  }
+.wangEditor-txt {
+  padding-top: 56px;
 }
 </style>
