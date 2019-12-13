@@ -5,8 +5,8 @@
     <img :src="src" width="200px" />
      -->
     <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
-
     <h3 class="title">{{ messageData.title }}</h3>
+
     <div class="wangEditor-container">
       <div class="wangEditor-txt" v-html="messageData.content"></div>
     </div>
@@ -74,6 +74,7 @@ export default {
   border-bottom: 1px solid #f3f3f3;
   margin: 0;
   padding: 15px 0;
+  z-index: 100;
 }
 
 .wrap {
@@ -82,7 +83,8 @@ export default {
   box-sizing: border-box;
 }
 
-.wangEditor-txt {
+.wangEditor-container {
   padding: 56px 20px 0;
+  border: none;
 }
 </style>
