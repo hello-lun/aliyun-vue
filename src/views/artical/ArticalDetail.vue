@@ -65,6 +65,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@import '@/style/mixins.scss';
 
 .title {
   position: fixed;
@@ -73,8 +74,13 @@ export default {
   top: 0;
   border-bottom: 1px solid #f3f3f3;
   margin: 0;
-  padding: 15px 0;
+  padding: 15px 15px;
   z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .wrap {
