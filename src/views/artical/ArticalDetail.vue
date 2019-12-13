@@ -7,7 +7,9 @@
     <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
 
     <h3 class="title">{{ messageData.title }}</h3>
-    <div class="wangEditor-txt" v-html="messageData.content"></div>
+    <div class="wangEditor-container">
+      <div class="wangEditor-txt" v-html="messageData.content"></div>
+    </div>
   </div>
 </template>
 
@@ -15,12 +17,14 @@
 import { Uploader,Skeleton } from 'vant';
 import API from '@/api/artical/index.js';
 import API_UPLOAD from '@/api/common.js';
+import YimoVueEditor from 'yimo-vue-editor';
 
 export default {
   name: '',
   components: {
     [Uploader.name]: Uploader,
     [Skeleton.name]: Skeleton,
+    YimoVueEditor,
   },
   data() {
     return {
