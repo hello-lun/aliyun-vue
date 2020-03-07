@@ -1,6 +1,8 @@
 import Axios from '@/api/axios/index.js';
 
 let obj = {};
+//回滚测试代码
+let test = 'test/commit-01';
 
 obj.getMemberList = () => 
   Axios({
