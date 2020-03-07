@@ -4,7 +4,7 @@ import router from "./router";
 import store from "./store";
 
 let test1 = 'commit-0001';
-
+test1 = 'commit-002';
 
 import './assets/css/global.css';
 import './assets/css/normalize.css';
