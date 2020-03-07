@@ -3,6 +3,8 @@ import Axios from '@/api/axios/index.js';
 let obj = {};
 //回滚测试代码
 let test = 'test/commit-01';
+test = 'test/commit-02';
+
 
 obj.getMemberList = () => 
   Axios({
