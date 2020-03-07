@@ -12,24 +12,27 @@
       :finished="finished"
       finished-text="没有更多了"
       class="list"
+      v-show="!skeletonLoading"
       @load="onLoad"
     >
       <van-card
         v-for="item in articalList"
         :key="item.title"
         :desc="item.desc"
-        :thumb="item.thumb"
+        :thumb="item.cover"
         @click="pageDetail(item.id)">
         <div slot="title" class="title">{{ item.title }}</div>
         <span slot="price">{{ item.createTime }}</span>
-        <span slot="num">阅读({{ item.num }})</span>
+        <span slot="num">阅读({{ item.read }})</span>
       </van-card>
     </van-list>
+
+    <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="skeletonLoading"/>
   </div>
 </template>
 
 <script>
-import { NavBar, List, Icon, Card } from 'vant';
+import { NavBar, List, Icon, Card, Skeleton } from 'vant';
 import title from '@/views/animation/title.vue';
 import API from '@/api/artical/index.js';
 
@@ -37,6 +40,7 @@ export default {
   name: '',
   components: {
     [NavBar.name]: NavBar,
+    [Skeleton.name]: Skeleton,
     [List.name]: List,
     [Icon.name]: Icon,
     [Card.name]: Card,
@@ -44,12 +48,10 @@ export default {
   },
   data() {
     return {
+      skeletonLoading: true,
       loading: false,
       finished: false,
-      articalList: [{
-        desc: '深刻的v觉得v',
-        title: '深刻的佛哦发货'
-      }],
+      articalList: [],
     };
   },
   computed: {},
@@ -57,7 +59,7 @@ export default {
     pageDetail (id) {
       this.$router.push({
         path: '/artical-detail',
-        id,
+        query: {id}
       });
     },
     onLoad () {},
@@ -67,8 +69,11 @@ export default {
   },
   created() {
     this.loading = true;
+    this.skeletonLoading = true;
+
     API.getArticalList().then(res => {
-      console.log(res, 7766);
+      this.skeletonLoading = false;
+      this.loading = false;
       this.articalList = res.list;
       this.finished = true;
     });

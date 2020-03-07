@@ -1,27 +1,35 @@
 <template>
   <div class='wrap'>
-    <h2>图片上传</h2>
+    <!-- <h2>图片上传</h2>
     <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
     <img :src="src" width="200px" />
-    
-    <div class="wangEditor-txt" v-html="messageData.content"></div>
+     -->
+    <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
+    <h3 class="title">{{ messageData.title }}</h3>
+
+    <div class="wangEditor-container">
+      <div class="wangEditor-txt" v-html="messageData.content"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import { Uploader } from 'vant';
+import { Uploader,Skeleton } from 'vant';
 import API from '@/api/artical/index.js';
 import API_UPLOAD from '@/api/common.js';
-
+import YimoVueEditor from 'yimo-vue-editor';
 
 export default {
   name: '',
   components: {
-    [Uploader.name]: Uploader
+    [Uploader.name]: Uploader,
+    [Skeleton.name]: Skeleton,
+    YimoVueEditor,
   },
   data() {
     return {
       src: '',
+      loading: true,
       messageData: {
         title: '',
         content: ''
@@ -42,32 +50,47 @@ export default {
     }
   },
   created() {
-    API.getArticalById({id: 1}).then(res => {
+    let { id } = this.$route.query;
+    API.getArticalById({id}).then(res => {
       this.messageData.content = res.data.content;
       this.messageData.title = res.data.title;
-    });;
+      this.loading = false;
+    }).catch(err => {
+      this.loading = false;
+      console.log(err)
+    });
   },
   mounted() {},
 }
 </script>
 
 <style lang='scss' scoped>
+@import '@/style/mixins.scss';
 
-// .wangEditor-container {
-//   width: 100%;
-//   height: 100%;
-
-//   img {
-//     max-width: 100% !important;
-//   }
-// }
+.title {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #f3f3f3;
+  margin: 0;
+  padding: 15px 15px;
+  z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
 
 .wrap {
   width: 100%;
   height: 100%;
-  
-  img {
-    max-width: 100% !important;
-  }
+  box-sizing: border-box;
+}
+
+.wangEditor-container {
+  padding: 56px 20px 0;
+  border: none;
 }
 </style>
