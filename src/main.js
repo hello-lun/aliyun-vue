@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+//cherry-pick/master
+let master = 'master/commit-01';
+
 import './assets/css/global.css';
 import './assets/css/normalize.css';
 
