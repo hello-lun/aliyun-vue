@@ -50,10 +50,6 @@ export default {
     }
   },
   created() {
-
-    //cherry-pick测试代码03
-    let test = 'commit-03';
-
     let { id } = this.$route.query;
     API.getArticalById({id}).then(res => {
       this.messageData.content = res.data.content;
