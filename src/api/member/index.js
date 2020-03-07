@@ -2,6 +2,8 @@ import Axios from '@/api/axios/index.js';
 
 let obj = {};
 
+let master = 'commit-1';
+
 obj.getMemberList = () => 
   Axios({
     url: '/api/member/list',
