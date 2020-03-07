@@ -4,6 +4,7 @@ let obj = {};
 
 //cherry-pick测试代码
 let test = 'commit-01';
+test = 'commit-02';
 
 obj.getMemberList = () => 
   Axios({
