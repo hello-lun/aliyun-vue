@@ -3,9 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-let test1 = 'commit-1';
-test1 = 'commit-2';
-test1 = 'commit-3';
+let test1 = 'commit-0001';
 
 
 import './assets/css/global.css';
