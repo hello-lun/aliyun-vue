@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+let test1 = 'commit-1';
+test1 = 'commit-2';
+
 import './assets/css/global.css';
 import './assets/css/normalize.css';
 
