@@ -1,109 +1,98 @@
 <template>
   <div class='wrap'>
-    <p class="title animated rubberBand">一起走过的日子</p>
-    <!-- <title-animation /> -->
-    <div style="margin-top: 160px;">
-      <van-field
-        v-model="name"
-        label="用户名"
-        left-icon="contact"/>
-      <van-field
-        v-model="password"
-        placeholder="随便输入数字即可"
-        label="密码"
-        left-icon="eye-o"/>
+    <!-- <h2>图片上传</h2>
+    <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
+    <img :src="src" width="200px" />
+     -->
+    <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
+    <h3 class="title">{{ messageData.title }}</h3>
 
-      <van-button type="primary" size="small" class="button" @click="login">登录</van-button>
-      <van-button type="warning" size="small" class="button" @click="registered">注册</van-button>
-
+    <div class="wangEditor-container">
+      <div class="wangEditor-txt" v-html="messageData.content"></div>
     </div>
   </div>
 </template>
 
 <script>
-import { Field, Button, Toast, Notify } from 'vant';
-import Axios from '@/api/axios/index.js';
-import title from '@/views/animation/title.vue';
+import { Uploader,Skeleton } from 'vant';
+import API from '@/api/artical/index.js';
+import API_UPLOAD from '@/api/common.js';
+import YimoVueEditor from 'yimo-vue-editor';
+import BenzAMRRecorder from 'benz-amr-recorder';
 
 export default {
   name: '',
+  components: {
+    [Uploader.name]: Uploader,
+    [Skeleton.name]: Skeleton,
+    YimoVueEditor,
+  },
   data() {
     return {
-      name: '',
-      password: ''
+      src: '',
+      loading: true,
+      messageData: {
+        title: '',
+        content: ''
+      },
     };
-  },
-  components: {
-    [Field.name]: Field,
-    [Button.name]: Button,
-    titleAnimation: title,
   },
   computed: {},
   methods: {
-    registered () {
-      if (!this.name) return Notify({ type: 'danger', message: '请填写用户名' });
-      if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
-      Axios({
-        url: '/api/member/registered',
-        method: 'get',
-        params: {
-          name: this.name,
-          password: this.password,
-        }
-      }).then(res => {
-        Toast.success('注册成功');
-        this.$router.push('/page');
+    afterRead(file) {
+      let params = new FormData(); //创建form对象
+      params.hfh = new BenzAMRRecorder();
+      params.append("files", file.file); //通过append向form对象添加数据//第一个参数字符串可以填任意命名，第二个根据对象属性来找到file
+  
+      API_UPLOAD.upload(params).then(res => {
+        this.src = res.src;
       }).catch(err => {
-        Toast.fail('注册失败，' + err.error);
+        console.log(err)
       });
-    },
-    login () {
-      if (!this.name) return Notify({ type: 'danger', message: '请填写用户名' });
-      if (!this.password) return Notify({ type: 'danger', message: '请填写密码' });
-
-      Axios({
-        url: '/api/member/login',
-        method: 'get',
-        params: {
-          name: this.name,
-          password: this.password,
-        }
-      }).then(res => {
-        Toast.success('登录成功');
-        this.$router.push('/page');
-      }).catch(err => {
-        console.log(err, 999);
-        Toast.fail('登录失败，' + err.error);
-      });
-    },
+    }
   },
-  created() {},
+  created() {
+    let { id } = this.$route.query;
+    API.getArticalById({id}).then(res => {
+      this.messageData.content = res.data.content;
+      this.messageData.title = res.data.title;
+      this.loading = false;
+    }).catch(err => {
+      this.loading = false;
+      console.log(err, 8888)
+    });
+  },
   mounted() {},
 }
 </script>
 
 <style lang='scss' scoped>
+@import '@/style/mixins.scss';
 
-p {
+.title {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #f3f3f3;
   margin: 0;
+  padding: 15px 15px;
+  z-index: 100;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .wrap {
-  box-sizing: border-box;
-  padding: 0 30px;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
-.button {
-  margin: 20px 20px 0 0;
+.wangEditor-container {
+  padding: 56px 20px 0;
+  border: none;
 }
-
-.title {
-  color: #7584a0;
-  padding: 15px 0;
-  font-size: 16px;
-  border-bottom: 1px solid #f3f2f2;
-}
-
 </style>

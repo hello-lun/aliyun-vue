@@ -12,7 +12,7 @@
                         <li><span>邮&emsp;&emsp;箱：</span>&emsp;872570730@qq.com</li>
                         <li><span>联系电话：</span>&emsp;13580116537</li>
                         <li><span>在职公司：</span>&emsp;广州油菜花信息科技有限公司</li>
-                        <li><span>个人博客：</span>&emsp;<a href="https://juejin.im/user/5a90cf12f265da4e9957a343/posts">掘金个人主页</a></li>
+                        <li><span>个人博客22：</span>&emsp;<a href="https://juejin.im/user/5a90cf12f265da4e9957a343/posts">掘金个人主页</a></li>
                         <!-- <li><span>期望薪资：</span>&emsp;10k-13k</li> -->
                     </ul>
                 </div>
