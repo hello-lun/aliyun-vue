@@ -9,6 +9,9 @@ module.exports = {
   devServer: {
     proxy: 'http://172.27.50.26:3389'
   },
+  configureWebpack: config => {
+    config.devtool = "source-map";
+  },
   lintOnSave: false,
   productionSourceMap: false,
   css: {

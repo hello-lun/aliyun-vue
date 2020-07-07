@@ -11,6 +11,8 @@ master = 'master/commit-04';
 import './assets/css/global.css';
 import './assets/css/normalize.css';
 
+import './errorMonitor';
+
 Vue.config.productionTip = false;
 
 new Vue({

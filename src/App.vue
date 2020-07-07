@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <button @click="dianji">点击</button>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,7 +8,24 @@
     <router-view />
   </div>
 </template>
-
+<script>
+export default {
+  name: '',
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {
+    dianji() {
+      let sd = {};
+      ad.ads();
+    }
+  },
+  created() {},
+  mounted() {
+  },
+};
+</script>
 <style>
 #app {
   width: 100%;
