@@ -1,13 +1,11 @@
-const autoprefixer = require('autoprefixer');
-const pxtoviewport = require('postcss-px-to-viewport');
+const autoprefixer = require("autoprefixer");
+const pxtoviewport = require("postcss-px-to-viewport");
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/aliyun-vue/'
-    : '/',
-  assetsDir: './assets',
+  publicPath: process.env.NODE_ENV === "production" ? "/aliyun-vue/" : "/",
+  assetsDir: "./assets",
   devServer: {
-    proxy: 'http://172.27.50.26:3389'
+    proxy: "http://172.27.50.26:3389"
   },
   lintOnSave: false,
   productionSourceMap: false,
@@ -23,4 +21,4 @@ module.exports = {
       }
     }
   }
-}
+};

@@ -1,16 +1,18 @@
 <template>
   <div class="wrap">
     <ul>
-      <li v-for="item in dataList" :key="item.age">{{ item.name + ':' + item.age}}</li>
+      <li v-for="item in dataList" :key="item.age">
+        {{ item.name + ":" + item.age }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Axios from '@/api/axios/index.js';
+import Axios from "@/api/axios/index.js";
 
 export default {
-  name: '',
+  name: "",
   data() {
     return {
       dataList: []
@@ -20,16 +22,14 @@ export default {
   methods: {},
   created() {
     Axios({
-      url: '/api/price/list',
-      method: 'get',
+      url: "/api/price/list",
+      method: "get"
     }).then(res => {
       this.dataList = res.list;
     });
   },
-  mounted() {},
-}
+  mounted() {}
+};
 </script>
 
-<style lang='scss' scoped>
-
-</style>
+<style lang="scss" scoped></style>

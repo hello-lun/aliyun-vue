@@ -1,21 +1,21 @@
-import Axios from '@/api/axios/index.js';
+import Axios from "@/api/axios/index.js";
 
 let obj = {};
 //回滚测试代码
-let test = 'test/commit-01';
-test = 'test/commit-02';
-test = 'test/commit-03';
+let test = "test/commit-01";
+test = "test/commit-02";
+test = "test/commit-03";
 
-obj.getMemberList = () => 
+obj.getMemberList = () =>
   Axios({
-    url: '/api/member/list',
-    method: 'get',
+    url: "/api/member/list",
+    method: "get"
   });
 
-obj.getAllMember = () => 
+obj.getAllMember = () =>
   Axios({
-    url: '/api/member/get-member',
-    method: 'get',
+    url: "/api/member/get-member",
+    method: "get"
   });
 
-  export default obj;
+export default obj;

@@ -1,10 +1,17 @@
 <template>
-  <div class='wrap'>
+  <div class="wrap">
     <!-- <h2>图片上传</h2>
     <van-uploader :after-read="afterRead" result-type="file" enctype="multipart/form-data"  accept="image/*"/>
     <img :src="src" width="200px" />
      -->
-    <van-skeleton title avatar :row="3" v-for="item in 3" :key="item" :loading="loading"/>
+    <van-skeleton
+      title
+      avatar
+      :row="3"
+      v-for="item in 3"
+      :key="item"
+      :loading="loading"
+    />
     <h3 class="title">{{ messageData.title }}</h3>
 
     <div class="wangEditor-container">
@@ -14,26 +21,26 @@
 </template>
 
 <script>
-import { Uploader,Skeleton } from 'vant';
-import API from '@/api/artical/index.js';
-import API_UPLOAD from '@/api/common.js';
-import YimoVueEditor from 'yimo-vue-editor';
+import { Uploader, Skeleton } from "vant";
+import API from "@/api/artical/index.js";
+import API_UPLOAD from "@/api/common.js";
+import YimoVueEditor from "yimo-vue-editor";
 
 export default {
-  name: '',
+  name: "",
   components: {
     [Uploader.name]: Uploader,
     [Skeleton.name]: Skeleton,
-    YimoVueEditor,
+    YimoVueEditor
   },
   data() {
     return {
-      src: '',
+      src: "",
       loading: true,
       messageData: {
-        title: '',
-        content: ''
-      },
+        title: "",
+        content: ""
+      }
     };
   },
   computed: {},
@@ -41,31 +48,35 @@ export default {
     afterRead(file) {
       let params = new FormData(); //创建form对象
       params.append("files", file.file); //通过append向form对象添加数据//第一个参数字符串可以填任意命名，第二个根据对象属性来找到file
-  
-      API_UPLOAD.upload(params).then(res => {
-        this.src = res.src;
-      }).catch(err => {
-        console.log(err)
-      });
+
+      API_UPLOAD.upload(params)
+        .then(res => {
+          this.src = res.src;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   created() {
     let { id } = this.$route.query;
-    API.getArticalById({id}).then(res => {
-      this.messageData.content = res.data.content;
-      this.messageData.title = res.data.title;
-      this.loading = false;
-    }).catch(err => {
-      this.loading = false;
-      console.log(err)
-    });
+    API.getArticalById({ id })
+      .then(res => {
+        this.messageData.content = res.data.content;
+        this.messageData.title = res.data.title;
+        this.loading = false;
+      })
+      .catch(err => {
+        this.loading = false;
+        console.log(err);
+      });
   },
-  mounted() {},
-}
+  mounted() {}
+};
 </script>
 
-<style lang='scss' scoped>
-@import '@/style/mixins.scss';
+<style lang="scss" scoped>
+@import "@/style/mixins.scss";
 
 .title {
   position: fixed;
