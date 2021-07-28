@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "analysis": "cross-env ANALYSIS=1 npm run build",
     "lint": "vue-cli-service lint",
-    "test": "echo 1",
+    "test": "node -V",
     "sh": "sh ./release.sh",
     "prepare": "husky install"
   },
