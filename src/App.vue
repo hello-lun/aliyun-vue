@@ -1,33 +1,31 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-07-27 21:37:07
+ * @LastEditTime: 2021-08-12 23:13:18
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /aliyun-vue/src/App.vue
+-->
 <template>
-  <div id="app">
-    <button @click="dianji">点击</button>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view />
+  <div class="app">
+    <h1>library测试</h1>
+    <library />
   </div>
 </template>
+
 <script>
+import library from "../dist/myLib.common.js";
+import "../dist/myLib.css";
+
 export default {
-  name: '',
-  data() {
-    return {};
-  },
-  computed: {},
-  methods: {
-    dianji() {
-      let sd = {};
-      ad.ads();
-    }
-  },
-  created() {},
-  mounted() {
-  },
+  name: "a",
+  components: {
+    library
+  }
 };
 </script>
 <style>
-#app {
+.app {
   width: 100%;
   height: 100%;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -35,18 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

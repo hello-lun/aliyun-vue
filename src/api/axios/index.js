@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 let jsonp = options => {
   let { url, data, jsonpCallback } = options;
@@ -6,19 +6,19 @@ let jsonp = options => {
   let isAbort = false;
   let jsonpInstance = null;
   jsonpInstance = new Promise((resolve, reject) => {
-    let pathParm = '';
+    let pathParm = "";
     if (data && Object.keys(data).length > 0) {
       for (let key in data) {
-        pathParm = pathParm + '&' + key + '=' + data[key];
+        pathParm = pathParm + "&" + key + "=" + data[key];
       }
 
-      pathParm = pathParm + '&_=' + +new Date();
+      pathParm = pathParm + "&_=" + +new Date();
     }
 
-    let JSONP = document.createElement('script');
-    JSONP.type = 'text/javascript';
+    let JSONP = document.createElement("script");
+    JSONP.type = "text/javascript";
     JSONP.src = `${url}?callback=${jsonpCallback}${pathParm}`;
-    document.getElementsByTagName('head')[0].appendChild(JSONP);
+    document.getElementsByTagName("head")[0].appendChild(JSONP);
 
     window[jsonpCallback] = res => {
       isAbort ? reject(res) : resolve(res);
@@ -37,13 +37,13 @@ let jsonp = options => {
 
 axios.defaults.withCredentials = true;
 axios.defaults.timeout = 30000; // 超时时间，默认30000
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 const CancelToken = axios.CancelToken;
 const instance = axios.create();
 
 function initAxios(oringinOption) {
-  if (oringinOption.dataType && oringinOption.dataType === 'jsonp') {
+  if (oringinOption.dataType && oringinOption.dataType === "jsonp") {
     return jsonp(oringinOption);
   }
 
@@ -64,7 +64,7 @@ function initAxios(oringinOption) {
 
   // 兼容jqury-ajax的abord方法
   axiosAjax.abort = function() {
-    reqCancel('cancel request');
+    reqCancel("cancel request");
   };
 
   return axiosAjax;

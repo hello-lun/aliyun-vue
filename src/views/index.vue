@@ -1,10 +1,11 @@
 <template>
-  <div class='wrap'>
+  <div class="wrap">
     <van-nav-bar
       right-text="登录/注册"
       @click-left="onClickLeft"
-      @click-right="onClickRight">
-      <title-animation slot="title" class="mini"/>
+      @click-right="onClickRight"
+    >
+      <title-animation slot="title" class="mini" />
       <van-icon name="apps-o" slot="left" size="1.3rem" />
     </van-nav-bar>
 
@@ -14,54 +15,58 @@
           <van-icon name="user-circle-o" size="1.5rem" />
         </p>
         <p class="left-item">
-          <span>个人简介</span> 
+          <span>个人简介</span>
         </p>
-        <van-cell title="博客" is-link icon="records" @click="handler('1')"/>
-        <van-cell title="杂文" is-link icon="newspaper-o" @click="handler('2')"/>
-        <van-cell title="心得" is-link icon="like-o" @click="handler('3')"/>
-        <van-cell title="旅游" is-link icon="logistics" @click="handler('4')"/>
+        <van-cell title="博客" is-link icon="records" @click="handler('1')" />
+        <van-cell
+          title="杂文"
+          is-link
+          icon="newspaper-o"
+          @click="handler('2')"
+        />
+        <van-cell title="心得" is-link icon="like-o" @click="handler('3')" />
+        <van-cell title="旅游" is-link icon="logistics" @click="handler('4')" />
       </div>
     </van-popup>
   </div>
 </template>
 
 <script>
-import { NavBar, Popup, Icon, Cell } from 'vant';
-import title from '@/views/animation/title.vue';
+import { NavBar, Popup, Icon, Cell } from "vant";
+import title from "@/views/animation/title.vue";
 
 export default {
-  name: '',
+  name: "",
   components: {
     [NavBar.name]: NavBar,
     [Popup.name]: Popup,
     [Icon.name]: Icon,
     [Cell.name]: Cell,
-    titleAnimation: title,
-
+    titleAnimation: title
   },
   data() {
     return {
-      popupShow: false,
+      popupShow: false
     };
   },
   computed: {},
   methods: {
-    onClickRight () {
-      this.$router.push('/login');
+    onClickRight() {
+      this.$router.push("/login");
     },
-    handler () {
-      this.$router.push('/artical');
+    handler() {
+      this.$router.push("/artical");
     },
-    onClickLeft () {
+    onClickLeft() {
       this.popupShow = true;
-    },
+    }
   },
   created() {},
-  mounted() {},
-}
+  mounted() {}
+};
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 p {
   margin: 0;
 }
@@ -74,7 +79,7 @@ p {
   }
 }
 
-.left{
+.left {
   &-box {
     width: 200px;
     height: 100%;
@@ -89,7 +94,6 @@ p {
     margin: 5px 0;
     text-align: center;
   }
-
 }
 
 .mini {

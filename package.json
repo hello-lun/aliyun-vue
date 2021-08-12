@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve --port 7777",
     "build": "vue-cli-service build",
     "analysis": "cross-env ANALYSIS=1 npm run build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:library": "vue-cli-service build --target lib --name myLib ./src/library.vue"
   },
   "dependencies": {
     "@vue/cli": "^4.3.1",
@@ -35,6 +36,8 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.1.1",
     "node-sass": "^4.13.0",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^1.19.1",

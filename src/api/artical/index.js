@@ -1,19 +1,26 @@
-import Axios from '@/api/axios/index.js';
+import Axios from "@/api/axios/index.js";
 
 let obj = {};
 
-obj.getArticalList = (data) => 
+obj.getArticalList = data =>
   Axios({
-    url: '/api/article/list',
-    method: 'get',
-    data,
+    url: "/api/article/list4",
+    method: "get",
+    data
   });
 
-obj.getArticalById = (data) => 
+obj.getArticalById = data =>
   Axios({
-    url: '/api/article/getArticalById',
-    method: 'get',
-    params: data,
+    url: "/api/article/getArticalById",
+    method: "get",
+    params: data
+  });
+
+obj.getArticalById12 = data =>
+  Axios({
+    url: "http://test-nraq.yy.com/resources",
+    method: "get",
+    params: data
   });
 
 export default obj;

@@ -1,29 +1,29 @@
 <template>
-  <div class="cp-preloader_type"> 
-    <span class="cp-preloader__letter" data-preloader="一">一</span> 
-    <span class="cp-preloader__letter" data-preloader="起">起</span> 
-    <span class="cp-preloader__letter" data-preloader="走">走</span> 
-    <span class="cp-preloader__letter" data-preloader="过">过</span> 
-    <span class="cp-preloader__letter" data-preloader="的">的</span> 
-    <span class="cp-preloader__letter" data-preloader="日">日</span> 
-    <span class="cp-preloader__letter" data-preloader="子">子</span> 
-  </div>   
+  <div class="cp-preloader_type">
+    <span class="cp-preloader__letter" data-preloader="一">一</span>
+    <span class="cp-preloader__letter" data-preloader="起">起</span>
+    <span class="cp-preloader__letter" data-preloader="走">走</span>
+    <span class="cp-preloader__letter" data-preloader="过">过</span>
+    <span class="cp-preloader__letter" data-preloader="的">的</span>
+    <span class="cp-preloader__letter" data-preloader="日">日</span>
+    <span class="cp-preloader__letter" data-preloader="子">子</span>
+  </div>
 </template>
 
 <script>
 export default {
-  name: '',
+  name: "",
   data() {
     return {};
   },
   computed: {},
   methods: {},
   created() {},
-  mounted() {},
+  mounted() {}
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .cp-preloader__letter {
   display: inline-block;
   position: relative;
@@ -44,7 +44,6 @@ export default {
 .cp-preloader__letter:nth-child(2):before {
   animation-delay: 0.3s;
 }
-
 
 .cp-preloader__letter:nth-child(3):before {
   animation-delay: 0.45s;

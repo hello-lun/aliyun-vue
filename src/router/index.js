@@ -13,8 +13,7 @@ const routes = [
   {
     path: "/page",
     name: "page",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/page.vue")
+    component: () => import(/* webpackChunkName: "about" */ "../views/page.vue")
   },
   {
     path: "/note",
@@ -38,14 +37,16 @@ const routes = [
     path: "/artical-detail",
     name: "artical-detail",
     component: () =>
-      import(/* webpackChunkName: "artical" */ "../views/artical/ArticalDetail.vue")
+      import(
+        /* webpackChunkName: "artical" */ "../views/artical/ArticalDetail.vue"
+      )
   },
   {
     path: "*",
     name: "not-found",
     component: () =>
       import(/* webpackChunkName: "artical" */ "../views/404.vue")
-  },
+  }
 ];
 
 const router = new VueRouter({
