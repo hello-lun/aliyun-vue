@@ -23,11 +23,11 @@
     "yimo-vue-editor": "^1.1.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.0",
-    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-router": "^4.1.0",
     "@vue/cli-plugin-vuex": "^4.1.0",
-    "@vue/cli-service": "^4.1.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-prettier": "^5.0.0",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
@@ -41,7 +41,7 @@
     "node-sass": "^4.13.0",
     "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^13.2.0",
     "vue-template-compiler": "^2.6.10",
     "webpack-bundle-analyzer": "^3.6.1"
   },
